@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IPTV Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="checkLogin(); loadPlaylist();">
+  <h1>IPTV Dashboard</h1>
+  <div id="playlist"></div>
+  <script>
+    function checkLogin() {
+      if (localStorage.getItem('auth') !== 'true') {
+        window.location.href = 'login.html';
+      }
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

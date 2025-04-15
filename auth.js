@@ -9,3 +9,20 @@ function login() {
     alert('Login gagal!');
   }
 }
+<body onload="checkLogin(); loadPlaylist();">
+  <h1>IPTV Dashboard</h1>
+  <button onclick="logout()">Logout</button>
+  <div id="playlist"></div>
+  <script>
+    function checkLogin() {
+      if (localStorage.getItem('auth') !== 'true') {
+        window.location.href = 'login.html';
+      }
+    }
+    function logout() {
+      localStorage.removeItem('auth');
+      window.location.href = 'login.html';
+    }
+  </script>
+  <script src="script.js"></script>
+</body>

@@ -19,10 +19,7 @@ function login() {
         window.location.href = 'login.html';
       }
     }
-    function logout() {
-      localStorage.removeItem('auth');
-      window.location.href = 'login.html';
-    }
-  </script>
-  <script src="script.js"></script>
-</body>
+function logout() {
+  localStorage.removeItem('auth');
+  window.location.href = 'login.html';
+}

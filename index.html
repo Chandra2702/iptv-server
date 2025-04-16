@@ -5,16 +5,44 @@
   <title>IPTV Dashboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body onload="checkLogin(); loadPlaylist();">
+<body onload="checkLogin(); loadPlaylist(); generateShortLink();">
   <h1>IPTV Dashboard</h1>
+  <div id="playlist-info"></div>
+  <div id="short-link-container"></div>
   <div id="playlist"></div>
+  <button onclick="logout()">Logout</button>
+  
+  <script src="script.js"></script>
   <script>
     function checkLogin() {
       if (localStorage.getItem('auth') !== 'true') {
         window.location.href = 'login.html';
       }
     }
+
+    function generateShortLink() {
+      const userId = localStorage.getItem('userId');
+      const token = localStorage.getItem('token');
+      const shortCode = btoa(userId + ':' + token).substring(0, 8);
+      const shortLink = `${window.location.origin}/p/${shortCode}`;
+      
+      const container = document.getElementById('short-link-container');
+      container.innerHTML = `
+        <div class="short-link-box">
+          <h3>Your Short Playlist Link</h3>
+          <input type="text" value="${shortLink}" readonly id="short-url" class="form-control">
+          <button onclick="copyShortLink()" class="btn btn-primary mt-2">Copy Short Link</button>
+          <p class="mt-2">Use this short link in your IPTV player</p>
+        </div>
+      `;
+    }
+
+    function copyShortLink() {
+      const urlInput = document.getElementById('short-url');
+      urlInput.select();
+      document.execCommand('copy');
+      alert('Short link copied to clipboard!');
+    }
   </script>
-  <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,15 @@
+#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-TARGETDURATION:2
+#EXT-X-MEDIA-SEQUENCE:0
+#EXTINF:2.400000,
+fazznetiptv0.ts
+#EXTINF:1.600000,
+fazznetiptv1.ts
+#EXTINF:2.400000,
+fazznetiptv2.ts
+#EXTINF:1.600000,
+fazznetiptv3.ts
+#EXTINF:1.533333,
+fazznetiptv4.ts
+#EXT-X-ENDLIST
